@@ -1,0 +1,45 @@
+<html>
+<script>
+function my_fun(str){
+  if (window.XMLHttpRequest){
+  xmlhttp = new XMLHttpRequest();
+  } else{
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+
+  }
+  xmlhttp.onreadystatechange=function(){
+    if (this.readyState==4 && this.status==200){
+      document.getElementById('poll').innerHTML = this.responseText;
+
+    }
+  }
+  xmlhttp.open("GET","helper.php?value="+str,true);
+  xmlhttp.send();
+}
+
+</script>
+<body>
+<div style="margin:auto; width:300px;">
+  <select id="SelectA" onchange="my_fun(this.value);">
+    <option>Select NAME</option>
+    <option value="GERRY">GERRY</option>
+    <option value="GERRY4">GERRY4</option>
+    </select>
+
+<hr>
+
+<div id="poll">
+<select>
+  <option>Select Drink</option>
+</select>
+
+</div>
+
+
+
+  
+</div>
+
+
+</body>
+<html>
